@@ -18,7 +18,6 @@ first_time = 1
 def index():
     return(render_template("index.html"))
 
-
 @app.route("/main",methods=["GET","POST"])
 def main():
     global first_time
@@ -38,6 +37,7 @@ def main():
 @app.route("/gemini",methods=["GET","POST"])
 def gemini():
     return(render_template("gemini.html"))
+
 @app.route("/gemini_reply",methods=["GET","POST"])
 def gemini_reply():
     q = request.form.get("q")
@@ -68,6 +68,12 @@ def delete_log():
     c.close()
     conn.close()
     return(render_template("delete_log.html"))
- 
+
+@app.route("/logout",methods=["GET","POST"])
+def logout():
+    global first_time
+    first_time = 1
+    return(render_template("index.html"))
+
 if __name__ == "__main__":
     app.run()
