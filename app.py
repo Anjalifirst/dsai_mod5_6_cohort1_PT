@@ -6,7 +6,7 @@ import sqlite3
 import datetime
 import requests
 
-gemini_api_key = os.getenv("gemini_api_key")
+gemini_api_key = os.getenv("GOOGLE_API_KEY")
 
 genmini_client = genai.Client(api_key=gemini_api_key)
 genmini_model = "gemini-2.0-flash"
@@ -14,7 +14,7 @@ genmini_model = "gemini-2.0-flash"
 genai1.configure(api_key=gemini_api_key)
 model = genai1.GenerativeModel("gemini-2.0-flash")
 
-gemini_telegram_token = os.getenv('GEMINI_TELEGRAM_TOKEN')
+gemini_telegram_token = os.getenv('TELEGRAM_TOKEN')
 
 app = Flask(__name__)
 
